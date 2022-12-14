@@ -75,8 +75,12 @@ function group(memberIds) {
 }
 function shuffle(array) {
     return array
-        .map(function (id, _) { return { id: id, sortKey: Math.random() }; })
-        .sort(function (a, b) { return a.sortKey - b.sortKey; })
+        .map(function (id, _) {
+        return { id: id, sortKey: Math.random() };
+    })
+        .sort(function (a, b) {
+        return a.sortKey - b.sortKey;
+    })
         .map(function (item) { return item.id; });
 }
 function getAllMemberIds() {
@@ -122,7 +126,9 @@ function getGroupedMemberIDs() {
                 case 0: return [4 /*yield*/, getAllMemberIds()];
                 case 1:
                     memberIds = _a.sent();
-                    filteredMemberIds = memberIds.filter(function (id) { return !config_1.CONFIG.blackList.includes(id); });
+                    filteredMemberIds = memberIds.filter(function (id) {
+                        return !config_1.CONFIG.blackList.includes(id);
+                    });
                     shuffledMemberIds = shuffle(filteredMemberIds);
                     return [2 /*return*/, group(shuffledMemberIds)];
             }

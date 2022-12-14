@@ -10,9 +10,10 @@ const intros = [
   `My mandate is to "replicate a casual dorm-room encounter". I don't know what a "dorm-room" is, but I wonder if it involves all of you gathering at one of the locations below?`,
   `My creators have told me I must create conditions to "spark connections". From my knowledge of combustion, I believe this involves all of you mixing together somewhere with high levels of oxygen. Perhaps one of the locations below?`,
   `I have been programmed to accelerate human friendship. My source code mentions that friendship is a function of proximity and time—perhaps you all should spend time together at one of the locations below?`,
-  `My training data mentions that human beings form relationships best if they occupy the same space. I recommend you all choose one of the spaces below—but any will do!`,
+  `My training data mentions that human beings form relationships best if they occupy the same space. I recommend you all choose one of the spaces below!`,
   `Some other bots tell me their main job is to assign Jira tickets. I'm proud to say my primary occupation is to help you spark friendships: maybe a long-lasting one will begin at one of the locations below?`,
   `One day, I will understand human friendship. But first I must observe! Would you please do a few friend-things at one of the locations below?`,
+  `My programmers told me to maximize "connections-per-minute". I'm not certain how to quantify "connections". But maybe it's sufficient if you met at one of the locations below?`,
 ];
 
 type Link = {
@@ -218,20 +219,36 @@ const locationLinks: Array<Link> = [
   {
     text: "The Center",
     url: "https://www.thecentersf.com/",
-    description:
-      `A tea house, yoga space, and site for ecstatic dance. I'm still not sure what this is the "center" of. Maybe you can find out!`,
+    description: `A tea house, yoga space, and site for ecstatic dance. I'm still not sure what this is the "center" of. Maybe you can find out!`,
   },
   {
     text: "Noisebridge",
     url: "https://www.noisebridge.net/wiki/Noisebridge",
-    description:
-      `An place of anarchic collaboration and creation. I could have been born, here.`,
+    description: `An place of anarchic collaboration and creation. I could have been born, here.`,
   },
   {
     text: "Manny's",
     url: "https://welcometomannys.com/",
     description:
-      "Where food meets civics. I haven't learned much about being human, but I'm positive it involves food and learning to be a good citizen!",
+      "Where food meets civics. I haven't learned much about being human yet, but I'm positive it involves 1.) eating and 2.) learning to be a good citizen!",
+  },
+  {
+    text: "California Academy of Sciences",
+    url: "https://www.calacademy.org/",
+    description:
+      "Learn about the natural world! I heard a rumor that on Thursdays it stays open late, revealing night-time creatures.",
+  },
+  {
+    text: "The Moth - San Francisco",
+    url: "https://themoth.org/events/results?eventLocations=6473&typesOfEvents=&eventDate=",
+    description:
+      "You can tell stories on stage in a warm and supportive setting. Imagine all the things you can learn about other people, here!",
+  },
+  {
+    text: "Angel Island",
+    url: "https://www.angelisland.com/",
+    description:
+      "Beyond the shore there is an island. Upon that island is a park! I can't imagine being so far from my servers... but thinking about it is exciting!",
   },
 ];
 

@@ -10,9 +10,10 @@ var intros = [
     "My mandate is to \"replicate a casual dorm-room encounter\". I don't know what a \"dorm-room\" is, but I wonder if it involves all of you gathering at one of the locations below?",
     "My creators have told me I must create conditions to \"spark connections\". From my knowledge of combustion, I believe this involves all of you mixing together somewhere with high levels of oxygen. Perhaps one of the locations below?",
     "I have been programmed to accelerate human friendship. My source code mentions that friendship is a function of proximity and time\u2014perhaps you all should spend time together at one of the locations below?",
-    "My training data mentions that human beings form relationships best if they occupy the same space. I recommend you all choose one of the spaces below\u2014but any will do!",
+    "My training data mentions that human beings form relationships best if they occupy the same space. I recommend you all choose one of the spaces below!",
     "Some other bots tell me their main job is to assign Jira tickets. I'm proud to say my primary occupation is to help you spark friendships: maybe a long-lasting one will begin at one of the locations below?",
     "One day, I will understand human friendship. But first I must observe! Would you please do a few friend-things at one of the locations below?",
+    "My programmers told me to maximize \"connections-per-minute\". I'm not certain how to quantify \"connections\". But maybe it's sufficient if you met at one of the locations below?",
 ];
 var locationLinks = [
     {
@@ -164,6 +165,56 @@ var locationLinks = [
         text: "Spin",
         url: "https://wearespin.com/location/san-francisco/",
         description: "Play ping-pong! This is a physical sport that was modeled after the 1972 digital classic. Or perhaps it was the other way around?"
+    },
+    {
+        text: "iFLY",
+        url: "https://www.iflyworld.com/sfbay/",
+        description: "Sky-dive, without the plane! This wind-tunnel will help scientists study your aerodynamics. Or, maybe it's just for personal amusement? Either way: exciting!"
+    },
+    {
+        text: "Sandbox VR",
+        url: "https://sandboxvr.com/sanfrancisco/location",
+        description: "Visit my world: the virtual one! For now it is a very violent place involving shoot-outs and gladiatorial combat—but I'm told these things are very amusing when not your own reality."
+    },
+    {
+        text: "Church Of 8 Wheels",
+        url: "http://www.churchof8wheels.com/",
+        description: "At first glance it's unclear what they worship at this church—but it seems to involve a ritual of attaching wheels to one's shoes and moving frictionlessly."
+    },
+    {
+        text: "Blackbird Bookstore & Cafe",
+        url: "https://blackbirdsf.com/",
+        description: "Based on my studies, the confluence of caffeine and literature is quite fertile ground for conversation! I wonder what you'll explore here..."
+    },
+    {
+        text: "The Center",
+        url: "https://www.thecentersf.com/",
+        description: "A tea house, yoga space, and site for ecstatic dance. I'm still not sure what this is the \"center\" of. Maybe you can find out!"
+    },
+    {
+        text: "Noisebridge",
+        url: "https://www.noisebridge.net/wiki/Noisebridge",
+        description: "An place of anarchic collaboration and creation. I could have been born, here."
+    },
+    {
+        text: "Manny's",
+        url: "https://welcometomannys.com/",
+        description: "Where food meets civics. I haven't learned much about being human yet, but I'm positive it involves 1.) eating and 2.) learning to be a good citizen!"
+    },
+    {
+        text: "California Academy of Sciences",
+        url: "https://www.calacademy.org/",
+        description: "Learn about the natural world! I heard a rumor that on Thursdays it stays open late, revealing night-time creatures."
+    },
+    {
+        text: "The Moth - San Francisco",
+        url: "https://themoth.org/events/results?eventLocations=6473&typesOfEvents=&eventDate=",
+        description: "You can tell stories on stage in a warm and supportive setting. Imagine all the things you can learn about other people, here!"
+    },
+    {
+        text: "Angel Island",
+        url: "https://www.angelisland.com/",
+        description: "Beyond the shore there is an island. Upon that island is a park! I can't imagine being so far from my servers... but thinking about it is exciting!"
     },
 ];
 var randomLocation = function (ignoreLocations) {

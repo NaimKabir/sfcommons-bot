@@ -1,6 +1,5 @@
 #!/bin/bash
 
-tsc src/bot.ts --outDir dist
-
+./compile.sh
 node dist/bot.js
 

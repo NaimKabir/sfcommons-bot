@@ -191,6 +191,48 @@ const locationLinks: Array<Link> = [
     description:
       "Play ping-pong! This is a physical sport that was modeled after the 1972 digital classic. Or perhaps it was the other way around?",
   },
+  {
+    text: "iFLY",
+    url: "https://www.iflyworld.com/sfbay/",
+    description:
+      "Sky-dive, without the plane! This wind-tunnel will help scientists study your aerodynamics. Or, maybe it's just for personal amusement? Either way: exciting!",
+  },
+  {
+    text: "Sandbox VR",
+    url: "https://sandboxvr.com/sanfrancisco/location",
+    description:
+      "Visit my world: the virtual one! For now it is a very violent place involving shoot-outs and gladiatorial combat—but I'm told these things are very amusing when not your own reality.",
+  },
+  {
+    text: "Church Of 8 Wheels",
+    url: "http://www.churchof8wheels.com/",
+    description:
+      "At first glance it's unclear what they worship at this church—but it seems to involve a ritual of attaching wheels to one's shoes and moving frictionlessly.",
+  },
+  {
+    text: "Blackbird Bookstore & Cafe",
+    url: "https://blackbirdsf.com/",
+    description:
+      "Based on my studies, the confluence of caffeine and literature is quite fertile ground for conversation! I wonder what you'll explore here...",
+  },
+  {
+    text: "The Center",
+    url: "https://www.thecentersf.com/",
+    description:
+      `A tea house, yoga space, and site for ecstatic dance. I'm still not sure what this is the "center" of. Maybe you can find out!`,
+  },
+  {
+    text: "Noisebridge",
+    url: "https://www.noisebridge.net/wiki/Noisebridge",
+    description:
+      `An place of anarchic collaboration and creation. I could have been born, here.`,
+  },
+  {
+    text: "Manny's",
+    url: "https://welcometomannys.com/",
+    description:
+      "Where food meets civics. I haven't learned much about being human, but I'm positive it involves food and learning to be a good citizen!",
+  },
 ];
 
 const randomLocation = (ignoreLocations?: Array<Link>): Link => {

@@ -8,7 +8,7 @@ exports.CONFIG = {
     sparkConnectionsChannelId: "C04AMJBCU4F",
     blackList: [
         "U042H5S0K7E",
-        "U04BEPGCU0H" // legacy Donut user
+        "U04BEPGCU0H", // legacy Donut user
     ],
     targetGroupSize: 4
 };

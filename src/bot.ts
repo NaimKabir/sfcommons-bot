@@ -43,6 +43,7 @@ function postPrivateInitiation(memberIds: Array<string>) {
             blocks: privateInitiation(tagGroup(memberIds)),
             text: "A new connection awaits!",
           })
+          .then(() => console.log("Posting initiation for: " + memberIds))
           .catch((e) =>
             handleError("Failed to post message to private conversation.", {
               memberIds: memberIds,
@@ -68,7 +69,10 @@ function postPrivateInitiation(memberIds: Array<string>) {
 
 getGroupedMemberIDs()
   .then((groups) => {
-    groups.forEach((memberIds) => postPrivateInitiation(memberIds));
+    groups.forEach((memberIds) => {
+      console.log("Attempting initiation for: " + memberIds)
+      postPrivateInitiation(memberIds)
+    });
   })
   .catch((e) =>
     handleError("Failed to get groups of memberIds", { errorResponse: e })

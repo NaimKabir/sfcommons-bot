@@ -42,7 +42,8 @@ function postPrivateInitiation(memberIds) {
                 unfurl_media: false,
                 blocks: (0, messages_1.privateInitiation)(tagGroup(memberIds)),
                 text: "A new connection awaits!"
-            })["catch"](function (e) {
+            })
+                .then(function () { return console.log("Posting initiation for: " + memberIds); })["catch"](function (e) {
                 return handleError("Failed to post message to private conversation.", {
                     memberIds: memberIds,
                     errorResponse: e
@@ -62,7 +63,10 @@ function postPrivateInitiation(memberIds) {
 // Run
 (0, groups_1.getGroupedMemberIDs)()
     .then(function (groups) {
-    groups.forEach(function (memberIds) { return postPrivateInitiation(memberIds); });
+    groups.forEach(function (memberIds) {
+        console.log("Attempting initiation for: " + memberIds);
+        postPrivateInitiation(memberIds);
+    });
 })["catch"](function (e) {
     return handleError("Failed to get groups of memberIds", { errorResponse: e });
 });

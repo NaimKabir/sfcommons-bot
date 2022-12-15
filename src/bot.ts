@@ -70,8 +70,8 @@ function postPrivateInitiation(memberIds: Array<string>) {
 getGroupedMemberIDs()
   .then((groups) => {
     groups.forEach((memberIds) => {
-      console.log("Attempting initiation for: " + memberIds)
-      postPrivateInitiation(memberIds)
+      console.log("Attempting initiation for: " + memberIds);
+      postPrivateInitiation(memberIds);
     });
   })
   .catch((e) =>

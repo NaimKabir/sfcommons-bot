@@ -35,8 +35,9 @@ function postPrivateInitiationToChannel(channelId, memberIds) {
         text: "A new connection awaits!"
     })
         .then(function () { return console.log("Posting initiation for: " + memberIds); })["catch"](function (e) {
-        return handleError("Failed to post message to private conversation.", {
+        return handleError("Failed to post message to channel.", {
             memberIds: memberIds,
+            channelId: channelId,
             errorResponse: e
         });
     });

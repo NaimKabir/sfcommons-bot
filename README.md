@@ -7,15 +7,16 @@ Community design document [here](https://tinyurl.com/commons-spark-connections).
 Sparkbot lives in our [#13-spark-connections](https://thesfcommons.slack.com/archives/C04AMJBCU4F) channel, and will prompt groups of people to meet up in interesting places.
 
 Currently it:
-* Finds everyone in #13-spark-connections
-* Groups them into groups of 4 or 5
-* Sends a private DM to them, prompting them to chat and meet up
+
+- Finds everyone in #13-spark-connections
+- Groups them into groups of 4 or 5
+- Sends a private DM to them, prompting them to chat and meet up
 
 Eventually we'll want to:
-* Collect metrics on successful meet-ups
-* Integrate with the Member Directory to seed discussion with mutual interests
-* Poll recommendations on cool meet-up sites from members
 
+- Collect metrics on successful meet-ups
+- Integrate with the Member Directory to seed discussion with mutual interests
+- Poll recommendations on cool meet-up sites from members
 
 ## Development
 
@@ -37,7 +38,7 @@ export SLACK_SIGNING_SECRET={secret}
 
 This is a TypeScript project. Though we edit `.ts` files in `/src`—actual runnables are `.js` files in `/dist`.
 
-Edited `.ts` files can be transpiled to runnable `.js` with `./compile.sh`. 
+Edited `.ts` files can be transpiled to runnable `.js` with `./compile.sh`.
 
 All `./run.sh` commands also compile before running to be safe and pick up recent edits.
 
@@ -72,10 +73,9 @@ This will actually post to Commons members and ping them.
 Before contributing, first write an [Issue](https://github.com/NaimKabir/sfcommons-bot/issues) so we can discuss design. From there you can go ahead and write a Pull Request which we can review and then merge in.
 
 Here's a loose guide to the code to help you think about edits you might make:
-* `/src/bot.ts` is the main runnable and entrypoint
-* `/src/config.ts` has global config information
-* `/src/groups.ts` houses actual member grouping logic to decide Commons member groups for a run. This currently sorts randomly—we may make this smarter in the future.
-* `/src/client.ts` is what exposes a usable Slack client
-* `/src/messages.ts` is the content that sparkbot uses to craft Direct Messages. Ideally this will one day poll from a dynamic editable source, like Google Sheets or Airtable.
 
-
+- `/src/bot.ts` is the main runnable and entrypoint
+- `/src/config.ts` has global config information
+- `/src/groups.ts` houses actual member grouping logic to decide Commons member groups for a run. This currently sorts randomly—we may make this smarter in the future.
+- `/src/client.ts` is what exposes a usable Slack client
+- `/src/messages.ts` is the content that sparkbot uses to craft Direct Messages. Ideally this will one day poll from a dynamic editable source, like Google Sheets or Airtable.

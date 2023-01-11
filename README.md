@@ -14,7 +14,7 @@ Currently it:
 Eventually we'll want to:
 * Collect metrics on successful meet-ups
 * Integrate with the Member Directory to seed discussion with mutual interests
-* Poll recommendations on cool mett-up sites 
+* Poll recommendations on cool meet-up sites from members
 
 
 ## Development
@@ -69,7 +69,7 @@ This will actually post to Commons members and ping them.
 
 ### Contributing
 
-Before contributing, first write an Issue so we can discuss design. From there you can go ahead and write a Pull Request which we can review and then merge in.
+Before contributing, first write an [Issue](https://github.com/NaimKabir/sfcommons-bot/issues) so we can discuss design. From there you can go ahead and write a Pull Request which we can review and then merge in.
 
 Here's a loose guide to the code to help you think about edits you might make:
 * `/src/bot.ts` is the main runnable and entrypoint

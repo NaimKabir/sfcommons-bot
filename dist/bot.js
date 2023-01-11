@@ -4,6 +4,7 @@ var config_1 = require("./config");
 var CLIENT_1 = require("./CLIENT");
 var messages_1 = require("./messages");
 var groups_1 = require("./groups");
+var node_process_1 = require("node:process");
 function handleError(message, metadata) {
     var prettyPrint = function (obj) { return JSON.stringify(obj || "", null, 2); };
     console.log(message, prettyPrint(metadata));
@@ -20,52 +21,66 @@ function handleError(message, metadata) {
         ]
     });
 }
-function postPrivateInitiation(memberIds) {
-    var tagGroup = function (memberIds) {
-        return memberIds.map(function (id) { return "<@".concat(id, ">"); }).join(" ");
-    };
-    var userList = function (memberIds) { return memberIds.join(","); };
-    CLIENT_1.CLIENT.conversations
-        .open({
+var tagGroup = function (memberIds) {
+    return memberIds.map(function (id) { return "<@".concat(id, ">"); }).join(" ");
+};
+function postPrivateInitiationToChannel(channelId, memberIds) {
+    CLIENT_1.CLIENT.chat
+        .postMessage({
         token: config_1.CONFIG.botToken,
-        prevent_creation: false,
-        return_im: false,
-        users: userList(memberIds)
+        channel: channelId,
+        unfurl_links: false,
+        unfurl_media: false,
+        blocks: (0, messages_1.privateInitiation)(tagGroup(memberIds)),
+        text: "A new connection awaits!"
     })
-        .then(function (result) {
-        if (result.channel && result.channel.id) {
-            CLIENT_1.CLIENT.chat
-                .postMessage({
-                token: config_1.CONFIG.botToken,
-                channel: result.channel.id,
-                unfurl_links: false,
-                unfurl_media: false,
-                blocks: (0, messages_1.privateInitiation)(tagGroup(memberIds)),
-                text: "A new connection awaits!"
-            })
-                .then(function () { return console.log("Posting initiation for: " + memberIds); })["catch"](function (e) {
-                return handleError("Failed to post message to private conversation.", {
-                    memberIds: memberIds,
-                    errorResponse: e
-                });
-            });
-        }
-        else {
-            handleError("No conversation ID found when attempting to post an initiation.", { memberIds: memberIds, conversationsApiResult: result });
-        }
-    })["catch"](function (e) {
-        return handleError("Failed to open private conversation.", {
+        .then(function () { return console.log("Posting initiation for: " + memberIds); })["catch"](function (e) {
+        return handleError("Failed to post message to private conversation.", {
             memberIds: memberIds,
             errorResponse: e
         });
     });
 }
+function postPrivateInitiation(environment, memberIds) {
+    switch (environment) {
+        case config_1.ENVIRONMENTS.TEST:
+            postPrivateInitiationToChannel(config_1.CONFIG.errorChannelId, memberIds);
+            break;
+        case config_1.ENVIRONMENTS.PRODUCTION:
+            // Open Direct Message between parties and post initiation
+            var userList = function (memberIds) { return memberIds.join(","); };
+            CLIENT_1.CLIENT.conversations
+                .open({
+                token: config_1.CONFIG.botToken,
+                prevent_creation: false,
+                return_im: false,
+                users: userList(memberIds)
+            })
+                .then(function (result) {
+                if (result.channel && result.channel.id) {
+                    postPrivateInitiationToChannel(result.channel.id, memberIds);
+                }
+                else {
+                    handleError("No conversation ID found when attempting to post an initiation.", { memberIds: memberIds, conversationsApiResult: result });
+                }
+            })["catch"](function (e) {
+                return handleError("Failed to open private conversation.", {
+                    memberIds: memberIds,
+                    errorResponse: e
+                });
+            });
+    }
+}
 // Run
+var ENVIRONMENT = node_process_1.argv[2];
+if (![config_1.ENVIRONMENTS.PRODUCTION, config_1.ENVIRONMENTS.TEST].includes(ENVIRONMENT)) {
+    throw "Must specify a valid environment!";
+}
 (0, groups_1.getGroupedMemberIDs)()
     .then(function (groups) {
     groups.forEach(function (memberIds) {
-        console.log("Attempting initiation for: " + memberIds);
-        postPrivateInitiation(memberIds);
+        console.log("Attempting ".concat(ENVIRONMENT, " initiation for: ") + memberIds);
+        postPrivateInitiation(ENVIRONMENT, memberIds);
     });
 })["catch"](function (e) {
     return handleError("Failed to get groups of memberIds", { errorResponse: e });

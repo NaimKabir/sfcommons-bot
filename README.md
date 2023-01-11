@@ -41,7 +41,7 @@ Edited `.ts` files can be transpiled to runnable `.js` with `./compile.sh`.
 
 All `./run.sh` commands also compile before running to be safe and pick up recent edits.
 
-### Formatting
+#### Formatting
 
 Let's keep code pretty without having to think about it! Just run:
 
@@ -49,7 +49,7 @@ Let's keep code pretty without having to think about it! Just run:
 npx prettier --write .
 ```
 
-### Test runs
+#### Test runs
 
 A dry run will post to [#x0testing](https://thesfcommons.slack.com/archives/C04J2SP748M) rather than actual Direct Messages between Commons members.
 

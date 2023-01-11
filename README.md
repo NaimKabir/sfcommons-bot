@@ -74,8 +74,8 @@ Before contributing, first write an [Issue](https://github.com/NaimKabir/sfcommo
 Here's a loose guide to the code to help you think about edits you might make:
 * `/src/bot.ts` is the main runnable and entrypoint
 * `/src/config.ts` has global config information
-* `src/groups.ts` houses actual member grouping logic to decide Commons member groups for a run. This currently sorts randomly—we may make this smarter in the future.
-* `src/client.ts` is what exposes a usable Slack client
-* `src/messages.ts` is the content that sparkbot uses to craft Direct Messages. Ideally this will one day poll from a dynamic editable source, like Google Sheets or Airtable.
+* `/src/groups.ts` houses actual member grouping logic to decide Commons member groups for a run. This currently sorts randomly—we may make this smarter in the future.
+* `/src/client.ts` is what exposes a usable Slack client
+* `/src/messages.ts` is the content that sparkbot uses to craft Direct Messages. Ideally this will one day poll from a dynamic editable source, like Google Sheets or Airtable.
 
 

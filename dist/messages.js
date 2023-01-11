@@ -127,11 +127,6 @@ var locationLinks = [
         description: "Climb these peaks in Golden Gate Park! It is the only place in San Francisco where Mission Blue butterflies still survive... maybe you can see one and say hello?"
     },
     {
-        text: "Stow Lake Boat Rental",
-        url: "https://stowlakeboathouse.com/",
-        description: "Walk-in boat rentals! Though, what exactly _is_ a \"walk-in boat\"?"
-    },
-    {
         text: "Aquatic Park",
         url: "https://ggtc.org/swimming-in-aquatic-park",
         description: "Swim the waters of the Bay. It is very cold. But some people say this gives rise to unnatural abilities, such as \"shivering\"."

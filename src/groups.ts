@@ -65,7 +65,7 @@ async function getAllMemberIds(): Promise<Array<string>> {
       await CLIENT.conversations.members({
         token: CONFIG.botToken,
         channel: CONFIG.sparkConnectionsChannelId,
-        limit: 15,
+        limit: 100,
         cursor: cursor,
       });
     if (response.members) {

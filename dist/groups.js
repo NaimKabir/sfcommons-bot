@@ -98,7 +98,7 @@ function getAllMemberIds() {
                     return [4 /*yield*/, client_1.CLIENT.conversations.members({
                             token: config_1.CONFIG.botToken,
                             channel: config_1.CONFIG.sparkConnectionsChannelId,
-                            limit: 15,
+                            limit: 100,
                             cursor: cursor
                         })];
                 case 2:

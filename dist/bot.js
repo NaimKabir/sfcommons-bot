@@ -42,6 +42,25 @@ function postPrivateInitiationToChannel(channelId, memberIds) {
         });
     });
 }
+function postChannelAnnouncement(environment) {
+    var channelId = environment == config_1.ENVIRONMENTS.PRODUCTION
+        ? config_1.CONFIG.sparkConnectionsChannelId
+        : config_1.CONFIG.errorChannelId;
+    CLIENT_1.CLIENT.chat
+        .postMessage({
+        token: config_1.CONFIG.botToken,
+        channel: channelId,
+        unfurl_links: false,
+        unfurl_media: false,
+        text: messages_1.jobAnnouncementMessage
+    })
+        .then(function () { return console.log("Posting announcement"); })["catch"](function (e) {
+        return handleError("Failed to post announcement message to channel.", {
+            channelId: channelId,
+            errorResponse: e
+        });
+    });
+}
 function postPrivateInitiation(environment, memberIds) {
     switch (environment) {
         case config_1.ENVIRONMENTS.TEST:
@@ -77,6 +96,7 @@ var ENVIRONMENT = node_process_1.argv[2];
 if (![config_1.ENVIRONMENTS.PRODUCTION, config_1.ENVIRONMENTS.TEST].includes(ENVIRONMENT)) {
     throw "Must specify a valid environment!";
 }
+// Send out Direct Message introductions
 (0, groups_1.getGroupedMemberIDs)()
     .then(function (groups) {
     groups.forEach(function (memberIds) {
@@ -86,3 +106,6 @@ if (![config_1.ENVIRONMENTS.PRODUCTION, config_1.ENVIRONMENTS.TEST].includes(ENV
 })["catch"](function (e) {
     return handleError("Failed to get groups of memberIds", { errorResponse: e });
 });
+// Announce to the channel so no one is ever uncertain if they just
+// didn't get grouped on a particular round.
+postChannelAnnouncement(ENVIRONMENT);

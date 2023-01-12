@@ -1,6 +1,6 @@
 import { CONFIG, ENVIRONMENTS } from "./config";
 import { CLIENT } from "./CLIENT";
-import { privateInitiation } from "./messages";
+import { jobAnnouncementMessage, privateInitiation } from "./messages";
 import { getGroupedMemberIDs } from "./groups";
 import { argv } from "node:process";
 
@@ -41,6 +41,28 @@ function postPrivateInitiationToChannel(
     .catch((e) =>
       handleError("Failed to post message to channel.", {
         memberIds: memberIds,
+        channelId: channelId,
+        errorResponse: e,
+      })
+    );
+}
+
+function postChannelAnnouncement(environment: string) {
+  const channelId =
+    environment == ENVIRONMENTS.PRODUCTION
+      ? CONFIG.sparkConnectionsChannelId
+      : CONFIG.errorChannelId;
+  CLIENT.chat
+    .postMessage({
+      token: CONFIG.botToken,
+      channel: channelId,
+      unfurl_links: false,
+      unfurl_media: false,
+      text: jobAnnouncementMessage,
+    })
+    .then(() => console.log("Posting announcement"))
+    .catch((e) =>
+      handleError("Failed to post announcement message to channel.", {
         channelId: channelId,
         errorResponse: e,
       })
@@ -88,6 +110,7 @@ if (![ENVIRONMENTS.PRODUCTION, ENVIRONMENTS.TEST].includes(ENVIRONMENT)) {
   throw "Must specify a valid environment!";
 }
 
+// Send out Direct Message introductions
 getGroupedMemberIDs()
   .then((groups) => {
     groups.forEach((memberIds) => {
@@ -98,3 +121,7 @@ getGroupedMemberIDs()
   .catch((e) =>
     handleError("Failed to get groups of memberIds", { errorResponse: e })
   );
+
+// Announce to the channel so no one is ever uncertain if they just
+// didn't get grouped on a particular round.
+postChannelAnnouncement(ENVIRONMENT);

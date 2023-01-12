@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-exports.privateInitiation = void 0;
+exports.jobAnnouncementMessage = exports.privateInitiation = void 0;
 var randomItem = function (array) {
     return array[Math.floor(Math.random() * array.length)];
 };
@@ -299,3 +299,7 @@ function privateInitiation(tags) {
     ];
 }
 exports.privateInitiation = privateInitiation;
+var announcementEmoji = function () {
+    return randomItem([":mega:", ":speaker:", ":loudspeaker:"]);
+};
+exports.jobAnnouncementMessage = "".concat(announcementEmoji(), " Sending a new batch of introductions! If you haven't received one, please tell ~an adult~ a human.");

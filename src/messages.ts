@@ -338,3 +338,7 @@ export function privateInitiation(
     },
   ];
 }
+
+const announcementEmoji = () =>
+  randomItem([":mega:", ":speaker:", ":loudspeaker:"]);
+export const jobAnnouncementMessage = `${announcementEmoji()} Sending a new batch of introductions! If you haven't received one, please tell ~an adult~ a human.`;

@@ -246,13 +246,6 @@ function privateInitiation(tags) {
             }
         },
         {
-            type: "section",
-            text: {
-                type: "mrkdwn",
-                text: "You will have two (2) weeks to organize something. I hope that's enough time!"
-            }
-        },
-        {
             type: "divider"
         },
         {
@@ -283,7 +276,24 @@ function privateInitiation(tags) {
             type: "section",
             text: {
                 type: "mrkdwn",
-                text: "If I made a mistake, I'm sorry. I'm still learning! Please report problems <https://github.com/NaimKabir/sfcommons-bot/issues|here>."
+                text: "You will have two (2) weeks to organize something. I hope that's enough time."
+            }
+        },
+        {
+            type: "section",
+            text: {
+                type: "mrkdwn",
+                text: ":camera_with_flash: Oh! One more thing: please remember to take photos and tell me how it went in #13-spark-connections!"
+            }
+        },
+        {
+            type: "divider"
+        },
+        {
+            type: "section",
+            text: {
+                type: "mrkdwn",
+                text: "_If I made a mistake, I'm sorry. I'm still learning. Please report problems <https://github.com/NaimKabir/sfcommons-bot/issues|here>_."
             }
         },
     ];

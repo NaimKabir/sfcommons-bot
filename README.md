@@ -24,6 +24,8 @@ Eventually we'll want to:
 
 This is a script that can be thrown into a cron job for scheduled runs.
 
+It runs on @kabir's 11-year old laptop with cron schedule: `0 10 7-14,21-28 * 3` (roughly biweekly on Wednesdays).
+
 #### Credentials
 
 Before beginning, you must set environment variables with sparkbot credentials. Ask @kabir to share these credentials via secure means if you don't have them.

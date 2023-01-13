@@ -24,7 +24,7 @@ Eventually we'll want to:
 
 This is a script that can be thrown into a cron job for scheduled runs.
 
-It runs on @kabir's 11-year old laptop with cron schedule: `0 10 7-14,21-28 * 3` (roughly biweekly on Wednesdays).
+It runs on @kabir's 11-year old laptop on a cron.
 
 #### Credentials
 

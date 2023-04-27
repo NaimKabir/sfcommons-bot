@@ -72,11 +72,6 @@ var locationLinks = [
         description: "Some might say stairs don't belong in jungles, or that jungles don't belong on stairs. I urge them to reconsider."
     },
     {
-        text: "Sutro Baths",
-        url: "https://goo.gl/maps/MmywcTNXD1MqKTn78",
-        description: "A beautiful ruin. Stand at the edge of a continent."
-    },
-    {
         text: "Albany Bulb",
         url: "https://www.albanybulb.org/",
         description: "A landfill, reborn into a site for sculpture and dance."
@@ -302,4 +297,4 @@ exports.privateInitiation = privateInitiation;
 var announcementEmoji = function () {
     return randomItem([":mega:", ":speaker:", ":loudspeaker:"]);
 };
-exports.jobAnnouncementMessage = "".concat(announcementEmoji(), " Sending a new batch of introductions! If you haven't received one, please tell ~an adult~ a human.");
+exports.jobAnnouncementMessage = "".concat(announcementEmoji(), " Sending a new batch of introductions! If you haven't received one, please tell a human.");

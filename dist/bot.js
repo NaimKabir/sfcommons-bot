@@ -62,8 +62,6 @@ var tagGroup = function (memberIds) {
     return memberIds.map(function (id) { return "<@".concat(id, ">"); }).join(" ");
 };
 function postPrivateInitiationToChannel(channelId, memberIds) {
-    console.log("MEEP");
-    console.log(memberIds);
     client_1.CLIENT.chat
         .postMessage({
         token: config_1.CONFIG.botToken,

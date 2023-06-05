@@ -340,4 +340,4 @@ const announcementEmoji = () =>
 
 export const jobAnnouncementMessage = `${announcementEmoji()} Sending a new batch of introductions! If you haven't received one, please tell a human.`;
 
-export const queryMessage = `:thinking_face: <!here> Are you available to connect some time in the next 2 weeks? If so, please raise your hand! :${PARTICIPATION_EMOJI}:`;
+export const queryMessage = `:thinking_face: <!here> Are you available to connect some time in the next 2 weeks? If so, please raise your hand *within 2 days*! :${PARTICIPATION_EMOJI}:`;

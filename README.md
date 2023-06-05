@@ -8,8 +8,8 @@ Sparkbot lives in our [#13-spark-connections](https://thesfcommons.slack.com/arc
 
 Currently it:
 
-- Finds everyone in #13-spark-connections
-- Groups them into groups of 4 or 5
+- Posts a message at the top of the week, asking for people interested in meeting up
+- Groups interested parties into lil' squads of 4 or 5
 - Sends a private DM to them, prompting them to chat and meet up
 
 Eventually we'll want to:

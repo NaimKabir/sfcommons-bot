@@ -44,7 +44,7 @@ var client_1 = require("./client");
  * of size `targetGroupSize`, avoiding cases where you get groups without critical mass.
  */
 function getGroupSizes(totalMembers, targetGroupSize) {
-    var numGroups = Math.floor(totalMembers / targetGroupSize);
+    var numGroups = Math.max(Math.floor(totalMembers / targetGroupSize), 1);
     var remainder = totalMembers % targetGroupSize;
     // Keeping it pretty simple: spread the remainder over the groups of targetGroupSize.
     // This means targetGroupSize is effectively only a minimum bound.
@@ -118,20 +118,15 @@ function getAllMemberIds() {
         });
     });
 }
-function getGroupedMemberIDs() {
+function getGroupedMemberIDs(providedMemberIds) {
     return __awaiter(this, void 0, void 0, function () {
-        var memberIds, filteredMemberIds, shuffledMemberIds;
+        var filteredMemberIds, shuffledMemberIds;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, getAllMemberIds()];
-                case 1:
-                    memberIds = _a.sent();
-                    filteredMemberIds = memberIds.filter(function (id) {
-                        return !config_1.CONFIG.blackList.includes(id);
-                    });
-                    shuffledMemberIds = shuffle(filteredMemberIds);
-                    return [2 /*return*/, group(shuffledMemberIds)];
-            }
+            filteredMemberIds = providedMemberIds.filter(function (id) {
+                return !config_1.CONFIG.blackList.includes(id);
+            });
+            shuffledMemberIds = shuffle(filteredMemberIds);
+            return [2 /*return*/, group(shuffledMemberIds)];
         });
     });
 }

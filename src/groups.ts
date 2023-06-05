@@ -12,7 +12,7 @@ function getGroupSizes(
   totalMembers: number,
   targetGroupSize: number
 ): Array<number> {
-  const numGroups = Math.floor(totalMembers / targetGroupSize);
+  const numGroups = Math.max(Math.floor(totalMembers / targetGroupSize), 1);
   const remainder = totalMembers % targetGroupSize;
 
   // Keeping it pretty simple: spread the remainder over the groups of targetGroupSize.
@@ -80,9 +80,10 @@ async function getAllMemberIds(): Promise<Array<string>> {
   return memberIds;
 }
 
-export async function getGroupedMemberIDs(): Promise<Groups> {
-  const memberIds = await getAllMemberIds();
-  const filteredMemberIds = memberIds.filter((id) => {
+export async function getGroupedMemberIDs(
+  providedMemberIds: string[]
+): Promise<Groups> {
+  const filteredMemberIds = providedMemberIds.filter((id) => {
     return !CONFIG.blackList.includes(id);
   });
 

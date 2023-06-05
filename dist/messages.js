@@ -1,6 +1,7 @@
 "use strict";
 exports.__esModule = true;
-exports.jobAnnouncementMessage = exports.privateInitiation = void 0;
+exports.queryMessage = exports.jobAnnouncementMessage = exports.privateInitiation = void 0;
+var config_1 = require("./config");
 var randomItem = function (array) {
     return array[Math.floor(Math.random() * array.length)];
 };
@@ -298,3 +299,4 @@ var announcementEmoji = function () {
     return randomItem([":mega:", ":speaker:", ":loudspeaker:"]);
 };
 exports.jobAnnouncementMessage = "".concat(announcementEmoji(), " Sending a new batch of introductions! If you haven't received one, please tell a human.");
+exports.queryMessage = ":thinking_face: <!here> Are you available to connect some time in the next 2 weeks? If so, please raise your hand! :".concat(config_1.PARTICIPATION_EMOJI, ":");

@@ -1,4 +1,5 @@
 import { SectionBlock, DividerBlock } from "@slack/types";
+import { PARTICIPATION_EMOJI } from "./config";
 
 const randomItem = (array: Array<any>) =>
   array[Math.floor(Math.random() * array.length)];
@@ -336,4 +337,7 @@ export function privateInitiation(
 
 const announcementEmoji = () =>
   randomItem([":mega:", ":speaker:", ":loudspeaker:"]);
+
 export const jobAnnouncementMessage = `${announcementEmoji()} Sending a new batch of introductions! If you haven't received one, please tell a human.`;
+
+export const queryMessage = `:thinking_face: <!here> Are you available to connect some time in the next 2 weeks? If so, please raise your hand! :${PARTICIPATION_EMOJI}:`;

@@ -59,7 +59,7 @@ A dry run will post to [#x0testing](https://thesfcommons.slack.com/archives/C04J
 This lets us do some quality assurance before an actual run.
 
 ```console
-./run.sh test
+./run.sh test {query|invite}
 ```
 
 #### Actual run
@@ -67,7 +67,7 @@ This lets us do some quality assurance before an actual run.
 This will actually post to Commons members and ping them.
 
 ```console
-./run.sh production
+./run.sh production {query|invite}
 ```
 
 ### Contributing

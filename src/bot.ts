@@ -40,8 +40,6 @@ function postPrivateInitiationToChannel(
   channelId: string,
   memberIds: Array<string>
 ) {
-  console.log("MEEP");
-  console.log(memberIds);
   CLIENT.chat
     .postMessage({
       token: CONFIG.botToken,

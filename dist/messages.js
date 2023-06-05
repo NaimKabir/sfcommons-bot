@@ -299,4 +299,4 @@ var announcementEmoji = function () {
     return randomItem([":mega:", ":speaker:", ":loudspeaker:"]);
 };
 exports.jobAnnouncementMessage = "".concat(announcementEmoji(), " Sending a new batch of introductions! If you haven't received one, please tell a human.");
-exports.queryMessage = ":thinking_face: <!here> Are you available to connect some time in the next 2 weeks? If so, please raise your hand *within 2 days*! :".concat(config_1.PARTICIPATION_EMOJI, ":");
+exports.queryMessage = ":thinking_face: <!channel> Are you available to connect some time in the next 2 weeks? If so, please raise your hand *within 2 days*! :".concat(config_1.PARTICIPATION_EMOJI, ":");

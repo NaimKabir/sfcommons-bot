@@ -298,5 +298,5 @@ exports.privateInitiation = privateInitiation;
 var announcementEmoji = function () {
     return randomItem([":mega:", ":speaker:", ":loudspeaker:"]);
 };
-exports.jobAnnouncementMessage = "".concat(announcementEmoji(), " Sending a new batch of introductions! If you haven't received one, please tell a human.");
+exports.jobAnnouncementMessage = "".concat(announcementEmoji(), " Sending a new batch of introductions! If you :").concat(config_1.PARTICIPATION_EMOJI, ": but didn't receive one, please tell a human. _beep boop_");
 exports.queryMessage = ":thinking_face: <!channel> Are you available to connect some time in the next 2 weeks? If so, please raise your hand *within 2 days*! :".concat(config_1.PARTICIPATION_EMOJI, ":");

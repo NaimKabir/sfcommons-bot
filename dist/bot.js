@@ -124,7 +124,7 @@ function getStoredQueryMessage(environment) {
  */
 function getQueryMessageReactors(environment) {
     return __awaiter(this, void 0, void 0, function () {
-        var storedQueryMessage, searchTimestamp, queryMessageHisory, queryMessages, reactors, uniqueReactors;
+        var storedQueryMessage, queryMessageHisory, queryMessage, reactors, uniqueReactors;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -133,22 +133,19 @@ function getQueryMessageReactors(environment) {
                         handleError("No valid stored query message found for environment: ".concat(environment, "."));
                         return [2 /*return*/, []];
                     }
-                    searchTimestamp = (parseFloat(storedQueryMessage.ts) + config_1.TIMESTAMP_EPSILON).toFixed(6);
-                    queryMessageHisory = client_1.CLIENT.conversations.history({
+                    queryMessageHisory = client_1.CLIENT.reactions.get({
                         channel: storedQueryMessage.channel,
-                        latest: "".concat(searchTimestamp),
-                        limit: 1
+                        timestamp: storedQueryMessage.ts,
+                        full: true
                     });
                     return [4 /*yield*/, queryMessageHisory];
                 case 1:
-                    queryMessages = (_a.sent()).messages;
-                    if (!queryMessages ||
-                        queryMessages.length == 0 ||
-                        !queryMessages[0].reactions) {
+                    queryMessage = (_a.sent()).message;
+                    if (!queryMessage || !queryMessage.reactions) {
                         handleError("Couldn't find fresh query message found for environment: ".concat(environment, ". Is the API request formatted correctly?"));
                         return [2 /*return*/, []];
                     }
-                    reactors = queryMessages[0].reactions
+                    reactors = queryMessage.reactions
                         .map(function (reac) { return (reac.users ? reac.users : []); })
                         .reduce(function (prev, current) { return prev.concat(current); })
                         .filter(function (user) { return !config_1.CONFIG.blackList.includes(user); });

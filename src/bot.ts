@@ -124,27 +124,19 @@ async function getQueryMessageReactors(
     );
     return [];
   }
-  // Slack's API only takes search timestamps with precision up to 6 digits.
-  const searchTimestamp = (
-    parseFloat(storedQueryMessage.ts) + TIMESTAMP_EPSILON
-  ).toFixed(6);
-  const queryMessageHisory = CLIENT.conversations.history({
+  const queryMessageHisory = CLIENT.reactions.get({
     channel: storedQueryMessage.channel,
-    latest: `${searchTimestamp}`,
-    limit: 1,
+    timestamp: storedQueryMessage.ts,
+    full: true,
   });
-  const queryMessages = (await queryMessageHisory).messages;
-  if (
-    !queryMessages ||
-    queryMessages.length == 0 ||
-    !queryMessages[0].reactions
-  ) {
+  const queryMessage = (await queryMessageHisory).message;
+  if (!queryMessage || !queryMessage.reactions) {
     handleError(
       `Couldn't find fresh query message found for environment: ${environment}. Is the API request formatted correctly?`
     );
     return [];
   }
-  const reactors = queryMessages[0].reactions
+  const reactors = queryMessage.reactions
     .map((reac) => (reac.users ? reac.users : []))
     .reduce((prev, current) => prev.concat(current))
     .filter((user) => !CONFIG.blackList.includes(user));

@@ -299,4 +299,31 @@ var announcementEmoji = function () {
     return randomItem([":mega:", ":speaker:", ":loudspeaker:"]);
 };
 exports.jobAnnouncementMessage = "".concat(announcementEmoji(), " Sending a new batch of introductions! If you :").concat(config_1.PARTICIPATION_EMOJI, ": but didn't receive one, please tell a human. _beep boop_");
-exports.queryMessage = ":thinking_face: <!channel> Are you available to connect some time in the next 2 weeks? If so, please raise your hand *within 2 days*! :".concat(config_1.PARTICIPATION_EMOJI, ":");
+var months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+];
+var weekdays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+];
+var horizonDays = 2;
+var deadlineDay = new Date();
+deadlineDay.setDate(deadlineDay.getDate() + horizonDays);
+var deadline = "".concat(weekdays[deadlineDay.getDay()], ", ").concat(months[deadlineDay.getMonth()], " ").concat(deadlineDay.getDate());
+exports.queryMessage = ":thinking_face: <!channel> Are you available to connect some time in the next 2 weeks? If so, please raise your hand *by ".concat(deadline, "*! :").concat(config_1.PARTICIPATION_EMOJI, ":");

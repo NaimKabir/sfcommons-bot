@@ -340,4 +340,33 @@ const announcementEmoji = () =>
 
 export const jobAnnouncementMessage = `${announcementEmoji()} Sending a new batch of introductions! If you :${PARTICIPATION_EMOJI}: but didn't receive one, please tell a human. _beep boop_`;
 
-export const queryMessage = `:thinking_face: <!channel> Are you available to connect some time in the next 2 weeks? If so, please raise your hand *within 2 days*! :${PARTICIPATION_EMOJI}:`;
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+const weekdays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+const horizonDays = 2;
+const deadlineDay = new Date();
+deadlineDay.setDate(deadlineDay.getDate() + horizonDays);
+const deadline = `${weekdays[deadlineDay.getDay()]}, ${
+  months[deadlineDay.getMonth()]
+} ${deadlineDay.getDate()}`;
+export const queryMessage = `:thinking_face: <!channel> Are you available to connect some time in the next 2 weeks? If so, please raise your hand *by ${deadline}*! :${PARTICIPATION_EMOJI}:`;
